@@ -8,6 +8,7 @@ module.exports = {
           600: "#4f46e5",
           700: "#4338ca",
         },
+        overlay: "#c2c2c2b3",
       },
     },
   },
