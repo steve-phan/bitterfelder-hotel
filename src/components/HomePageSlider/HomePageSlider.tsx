@@ -27,6 +27,9 @@ export const HomePageSlider = () => {
               <Image
                 alt="Bitterfelder Hotel"
                 src={`/background/Bitterfelder-Hotel-${index + 1}.jpg`}
+                style={{
+                  objectFit: "cover",
+                }}
                 fill
               />
             </div>
