@@ -28,7 +28,11 @@ export const Header = () => {
             <IconAccount /> <span>Anmelden</span>
           </div>
           <div className="fixed w-full md:relative bottom-0 left-0 right-0 md:block">
-            <ActionButton to="/reservations" title="Jeztz Buchen" />
+            <ActionButton
+              isDynamicButton
+              to="/reservations"
+              title="Jeztz Buchen"
+            />
           </div>
         </div>
         <div className="hidden" ref={scrollParentRef}>

@@ -38,7 +38,10 @@ export const CookiesDashBoard = () => {
   }
 
   return (
-    <div className="fixed bg-overlay inset-0" onClick={() => setHidden(true)}>
+    <div
+      className="fixed bg-overlay inset-0 bottom-10 md:bottom-0"
+      onClick={() => setHidden(true)}
+    >
       <div className="w-full p-3 absolute bottom-0 bg-white md:flex md:justify-between xl:px-40">
         <div className="text-center">
           Diese Website verwendet Cookies, um die Funktionen der Website zu
