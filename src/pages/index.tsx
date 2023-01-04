@@ -1,9 +1,7 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { HomePageSlider } from "@sharedUI/ImagesSlider";
+import { HomePageSlider } from "@components/HomePageSlider/HomePageSlider";
 
 const inter = Inter({ subsets: ["latin"] });
 

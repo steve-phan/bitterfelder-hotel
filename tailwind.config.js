@@ -10,6 +10,11 @@ module.exports = {
         },
         overlay: "#c2c2c2b3",
       },
+      padding: {
+        header: "56px",
+        "header-md": "82px",
+        bottom: "48px",
+      },
     },
   },
   plugins: [],

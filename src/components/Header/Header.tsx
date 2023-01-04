@@ -13,23 +13,27 @@ export const Header = () => {
 
   const handleToggle = () => setIsOpen(!isOpen);
   return (
-    <div className="fixed z-50 bg-white top-0 left-0 right-0 flex items-center justify-between px-5 py-4">
-      <div className="flex gap-x-4 md:text-xl">
-        <div onClick={handleToggle}>
-          {isOpen ? <IconMenuClose /> : <IconMenuOpen />}
+    <div className="fixed z-50 top-0 left-0 right-0 max-w-full">
+      <div className=" bg-white flex items-center justify-between px-5 py-4 max-w-full">
+        <div className="flex gap-x-2 md:gap-x-4 md:text-xl">
+          <div onClick={handleToggle}>
+            {isOpen ? <IconMenuClose /> : <IconMenuOpen />}
+          </div>
+          <div>
+            <Link href="/">Bitterfelder Hotel</Link>
+          </div>
         </div>
-        <div>
-          <Link href="/">Bitterfelder Hotel</Link>
+        <div className="flex items-center gap-x-4 md:text-xl">
+          <div className="flex">
+            <IconAccount /> <span>Anmelden</span>
+          </div>
+          <div className="fixed w-full md:relative bottom-0 left-0 right-0 md:block">
+            <ActionButton to="/reservations" title="Jeztz Buchen" />
+          </div>
         </div>
-      </div>
-      <div className="flex items-center gap-x-4 md:text-xl">
-        <div className="flex">
-          <IconAccount /> <span>Anmelden</span>
+        <div className="hidden" ref={scrollParentRef}>
+          sidebar
         </div>
-        <ActionButton to="/reservations" title="Jeztz Buchen" />
-      </div>
-      <div className="hidden" ref={scrollParentRef}>
-        sidebar
       </div>
     </div>
   );
