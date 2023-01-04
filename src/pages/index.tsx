@@ -1,6 +1,10 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { HomePageSlider } from "@sharedUI/ImagesSlider";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -12,7 +16,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <HomePageSlider />
       <h1 className="font-bold">Hello, World</h1>
     </>
   );
