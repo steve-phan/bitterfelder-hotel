@@ -1,26 +1,54 @@
-import React, { useState } from "react";
+//@ts-nocheck
+
+import React, { useState, useMemo } from "react";
 import { useCookies } from "react-cookie";
+import * as CryptoJS from "crypto-js";
+
+/**
+ *  NOTE: This is ONLY placeholder version.
+ *  @todo: Implement some logic when needed
+ *
+ */
+
+const decryptCookies = (encryptedCookieValue: string | undefined) => {
+  if (!encryptedCookieValue) {
+    return false;
+  }
+  return CryptoJS.AES.decrypt(encryptedCookieValue, SUPER_SECRET).toString(
+    CryptoJS.enc.Utf8
+  );
+};
+
+const SUPER_SECRET = "super_secret";
+const DEFAULT_VALUE = "default some value";
 
 export const CookiesDashBoard = () => {
-  const [hidden, setHidden] = useState(false);
-  const [cookies, setCookie] = useCookies(["name", "age"]);
+  const [cookies, setCookie] = useCookies(["defaultCookie"]);
+  const [hidden, setHidden] = useState(cookies.defaultCookie);
+
+  const handleAcceptCookie = () => {
+    const encryptedCookieValue = CryptoJS.AES.encrypt(
+      DEFAULT_VALUE,
+      SUPER_SECRET
+    ).toString();
+    setHidden(true);
+    setCookie("defaultCookie", encryptedCookieValue);
+  };
 
   if (hidden) {
     return <></>;
   }
 
   return (
-    <div className="fixed bg-overlay inset-0">
-      <div className="p-2 absolute bottom-0">
-        <div>
+    <div className="fixed bg-overlay inset-0" onClick={() => setHidden(true)}>
+      <div className="w-full p-3 absolute bottom-0 bg-white md:flex md:justify-between xl:px-40">
+        <div className="text-center">
           Diese Website verwendet Cookies, um die Funktionen der Website zu
           verbessern, die Nutzung der Website zu analysieren
         </div>
         <button
-          className="bg-red-600 text-white px-3 rounded"
-          onClick={() => {
-            setHidden(true);
-          }}
+          className="bg-red-600 text-white px-3 rounded block mx-auto mt-2 md:mx-0"
+          onClick={handleAcceptCookie}
         >
           AKZEPTIEREN
         </button>
@@ -28,23 +56,3 @@ export const CookiesDashBoard = () => {
     </div>
   );
 };
-
-export default function NameForm({ name, onChange }: any) {
-  return (
-    <div>
-      <h1>What&apos;s your name?</h1>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
-        <input
-          type="text"
-          placeholder="Enter your name"
-          defaultValue={name}
-          onChange={(e) => onChange(e.target.value)}
-        />
-      </form>
-    </div>
-  );
-}
