@@ -1,8 +1,6 @@
-//@ts-nocheck
-
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { useCookies } from "react-cookie";
-import * as CryptoJS from "crypto-js";
+import CryptoJS from "crypto-js";
 
 /**
  *  NOTE: This is ONLY placeholder version.

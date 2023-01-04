@@ -13,7 +13,7 @@ export const Header = () => {
 
   const handleToggle = () => setIsOpen(!isOpen);
   return (
-    <div className="flex items-center justify-between px-5 py-4">
+    <div className="fixed top-0 left-0 right-0 flex items-center justify-between px-5 py-4">
       <div className="flex gap-x-4 md:text-xl">
         <div onClick={handleToggle}>
           {isOpen ? <IconMenuClose /> : <IconMenuOpen />}
