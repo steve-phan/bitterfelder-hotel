@@ -7,6 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 const settings = {
   autoplay: true,
+  initialSlide: 3,
+  fade: true,
   dots: true,
   infinite: true,
   speed: 800,
