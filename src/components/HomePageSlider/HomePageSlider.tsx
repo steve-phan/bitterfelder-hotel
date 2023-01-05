@@ -19,22 +19,56 @@ const settings = {
 export const HomePageSlider = () => {
   return (
     <Slider {...settings}>
-      {Array(5)
-        .fill("")
-        .map((_, index) => {
-          return (
-            <div key={index} className="h-screen relative z-10">
-              <Image
-                alt="Bitterfelder Hotel"
-                src={`/background/Bitterfelder-Hotel-${index + 1}.jpg`}
-                style={{
-                  objectFit: "cover",
-                }}
-                fill
-              />
-            </div>
-          );
-        })}
+      <div className="h-screen relative z-10">
+        <Image
+          alt="Bitterfelder Hotel"
+          src={`/background/Bitterfelder-Hotel-1.jpg`}
+          style={{
+            objectFit: "cover",
+          }}
+          fill
+        />
+      </div>
+      <div className="h-screen relative z-10">
+        <Image
+          alt="Bitterfelder Hotel"
+          src={`/background/Bitterfelder-Hotel-2.jpg`}
+          style={{
+            objectFit: "cover",
+          }}
+          fill
+        />
+      </div>
+      <div className="h-screen relative z-10">
+        <Image
+          alt="Bitterfelder Hotel"
+          src={`/background/Bitterfelder-Hotel-3.jpg`}
+          style={{
+            objectFit: "cover",
+          }}
+          fill
+        />
+      </div>
+      <div className="h-screen relative z-10">
+        <Image
+          alt="Bitterfelder Hotel"
+          src={`/background/Bitterfelder-Hotel-4.jpg`}
+          style={{
+            objectFit: "cover",
+          }}
+          fill
+        />
+      </div>
+      <div className="h-screen relative z-10">
+        <Image
+          alt="Bitterfelder Hotel"
+          src={`/background/Bitterfelder-Hotel-5.jpg`}
+          style={{
+            objectFit: "cover",
+          }}
+          fill
+        />
+      </div>
     </Slider>
   );
 };
