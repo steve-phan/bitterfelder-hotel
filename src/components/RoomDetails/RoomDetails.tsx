@@ -1,24 +1,32 @@
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import type { IRoom } from "src/mock/rooms";
 
 import { IconGuest } from "@Icons/IconGuest";
-import { SelectNumber } from "@sharedUI/SelectNumber";
+import { SelectNumber, TYPES_OF_GUEST } from "@sharedUI/SelectNumber";
 
 export const RoomDetails = ({
   room_type_desc,
   room_type_title,
   num_available_now,
-  max_guests,
+  max_guests: defaultMaxGuests,
   los_min,
   rate_min,
 }: IRoom) => {
-  const refAdult = useRef(null);
-  const refKinder = useRef(null);
-  const refRoom = useRef(null);
+  const maxGuests = Number(defaultMaxGuests);
 
-  const numberOfKinder = Number(max_guests) - (Number(refAdult.current) || 1);
+  const refAdult = useRef<HTMLSelectElement | null>(null);
+  const refKinder = useRef<HTMLSelectElement | null>(null);
+  const refRoom = useRef<HTMLSelectElement | null>(null);
+  const [avaiableSlots, setAvaiableSlots] = useState(maxGuests);
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const adultGuests = Number(refAdult?.current?.value) || 0;
+    const kinderGuests = Number(refKinder?.current?.value) || 0;
+
+    setAvaiableSlots(maxGuests - adultGuests - kinderGuests);
+  };
 
   return (
     <div className="roomDetailsWrapper flex flex-col bg-white p-4 mt-4 md:flex-row md:justify-between md:gap-4">
@@ -40,12 +48,12 @@ export const RoomDetails = ({
           <div className="rd-accupancy">
             <div>Maximale Belegung</div>
             <div className="flex items-center gap-0.5 text-slate-500">
-              {Array(Number(max_guests))
+              {Array(maxGuests)
                 .fill("")
                 .map((_, index) => {
                   return <IconGuest key={index} />;
                 })}
-              {max_guests}
+              {maxGuests}
             </div>
           </div>
           <div className="rd-minmax">
@@ -68,22 +76,29 @@ export const RoomDetails = ({
           <div className="flex gap-2">
             <SelectNumber
               ref={refAdult}
-              label="Erwachsene"
+              label={TYPES_OF_GUEST.ADULT}
               requireValue
-              number={Number(max_guests)}
+              number={maxGuests}
+              onChange={handleChange}
+              max_guests={maxGuests}
+              avaiableSlots={avaiableSlots}
             />
-            {Number(max_guests) !== 1 && (
+            {maxGuests !== 1 && (
               <SelectNumber
                 ref={refKinder}
-                label="Kinder"
-                number={numberOfKinder}
+                label={TYPES_OF_GUEST.KID}
+                number={maxGuests}
+                onChange={handleChange}
+                max_guests={maxGuests}
+                avaiableSlots={avaiableSlots}
               />
             )}
             <SelectNumber
               ref={refRoom}
-              label="Zimmer"
+              label={TYPES_OF_GUEST.ROOM}
               requireValue
               number={num_available_now}
+              onChange={handleChange}
             />
           </div>
         </div>
