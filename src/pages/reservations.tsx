@@ -4,6 +4,7 @@ import { compareAsc } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
 
 import { CalendarPickerWrapper } from "@sharedUI/CalendarPickerWrapper";
+import { RoomListing } from "@components/RoomListing/RoomListing";
 
 const today = new Date();
 
@@ -22,7 +23,7 @@ const Reservations = () => {
   return (
     <div>
       <div className="wrap-datepickers px-3 py-6 flex gap-x-3 justify-center">
-        <CalendarPickerWrapper>
+        <CalendarPickerWrapper label="Check-In">
           <DatePicker
             selected={startDate}
             onChange={(date) => {
@@ -38,7 +39,7 @@ const Reservations = () => {
             customInput={React.createElement(forwardRef(CustomInput))}
           />
         </CalendarPickerWrapper>
-        <CalendarPickerWrapper>
+        <CalendarPickerWrapper label="Checkout-Out">
           <DatePicker
             selected={endDate}
             onChange={(date) => setEndDate(date)}
@@ -50,6 +51,7 @@ const Reservations = () => {
           />
         </CalendarPickerWrapper>
       </div>
+      <RoomListing />
     </div>
   );
 };

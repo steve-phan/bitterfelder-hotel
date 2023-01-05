@@ -537,3 +537,43 @@ export const room_types = [
     not_derived_price: false,
   },
 ];
+type IRoomPre = typeof room_types;
+
+export interface IRoom {
+  rate_basic: number;
+  rate_min: number;
+  rate_max: number;
+  guests: {
+    adult: string[];
+    kid: string[];
+  };
+  room_type_id: number;
+  package_id: number;
+  rate_id: number;
+  is_derived: number;
+  num_available_now: number;
+  remaining: number;
+  los_min: number;
+  los_max: number;
+  cut_off: number;
+  room_type_name: string;
+  room_type_title: string;
+  bookable_limit: string;
+  max_rooms: number;
+  adults_inBasePrice: string;
+  children_inBasePrice: string;
+  max_guests: string;
+  is_private: string;
+  room_type_short_title: string;
+  room_type_desc: string;
+  num_beds: string;
+  featured_photo: string;
+  featured_photo_big: string;
+  other_photos: string[];
+  photos_gallery: string[];
+  featured_photo_alt: string;
+  other_photos_alt: string[];
+  photos_gallery_alt: string[];
+  features: string[];
+  not_derived_price: boolean;
+}
