@@ -13,8 +13,8 @@ export const RoomDetails = ({
   rate_min,
 }: IRoom) => {
   return (
-    <div className="roomDetailsWrapper flex flex-col bg-white p-4 mt-4">
-      <div className="rd_image relative max-h-96 h-96">
+    <div className="roomDetailsWrapper flex flex-col bg-white p-4 mt-4 md:flex-row md:justify-between md:gap-4">
+      <div className="rd_image relative max-h-96 h-96 md:w-full md:max-w-sm lg:max-w-md">
         <Image
           alt="Bitterfelder Hotel"
           src={`/background/Bitterfelder-Hotel-${
@@ -24,7 +24,7 @@ export const RoomDetails = ({
           quality={45}
         />
       </div>
-      <div className="rd_info">
+      <div className="rd_info flex-grow">
         <div className="rd-title text-2xl underline decoration-pink-600 py-2">
           <span>{room_type_title}</span>
         </div>
@@ -48,7 +48,7 @@ export const RoomDetails = ({
           </div>
         </div>
         <div className="rd-price p-2">
-          <div className="text-right">Preis von </div>
+          <div className="text-right text-sm">Preis von </div>
           <div className="flex justify-between">
             <div>Standardpreis</div>
             <div className="text-pink-600 font-bold">€{rate_min} </div>

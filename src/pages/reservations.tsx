@@ -21,7 +21,7 @@ const Reservations = () => {
   const [startDate, setStartDate] = useState<Date | null>(today);
   const [endDate, setEndDate] = useState<Date | null>(startDate);
   return (
-    <div>
+    <div className="max-w-5xl mx-auto">
       <div className="wrap-datepickers px-3 py-6 flex gap-x-3 justify-center">
         <CalendarPickerWrapper label="Check-In">
           <DatePicker
