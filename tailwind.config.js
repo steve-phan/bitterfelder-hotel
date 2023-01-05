@@ -15,6 +15,9 @@ module.exports = {
         "header-md": "82px",
         bottom: "48px",
       },
+      maxHeight: {
+        carousel: "460px",
+      },
     },
   },
   plugins: [],

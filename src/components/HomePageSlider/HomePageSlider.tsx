@@ -7,7 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 const settings = {
   autoplay: true,
-  initialSlide: 1,
   fade: true,
   dots: true,
   infinite: true,
@@ -25,7 +24,10 @@ export const HomePageSlider = () => {
         .fill("")
         .map((_, index) => {
           return (
-            <div key={index} className="h-screen relative z-10">
+            <div
+              key={index}
+              className="h-screen max-h-carousel md:max-h-screen relative z-10"
+            >
               <Image
                 alt="Bitterfelder Hotel"
                 src={`/background/Bitterfelder-Hotel-${index + 1}.jpg`}
@@ -33,6 +35,7 @@ export const HomePageSlider = () => {
                   objectFit: "cover",
                 }}
                 fill
+                quality={45}
               />
             </div>
           );
