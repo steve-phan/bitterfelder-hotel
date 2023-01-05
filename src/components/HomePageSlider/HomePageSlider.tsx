@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "react-slick";
+import Slider, { LazyLoadTypes } from "react-slick";
 import Image from "next/image";
 
 import "slick-carousel/slick/slick.css";
@@ -15,12 +15,13 @@ const settings = {
   slidesToScroll: 1,
   prevArrow: <></>,
   nextArrow: <></>,
+  lazyLoad: "progressive" as LazyLoadTypes,
 };
 
 export const HomePageSlider = () => {
   return (
     <Slider {...settings}>
-      {Array(5)
+      {Array(3)
         .fill("")
         .map((_, index) => {
           return (
