@@ -126,7 +126,7 @@ export const RoomDetails = ({
             //@ts-ignore
             onActiveTabChange={(tab) => setActiveTab(tab)}
           >
-            <Tabs.Item active title="Profile">
+            <Tabs.Item active title="Beschreibung">
               <div
                 className="p-2"
                 dangerouslySetInnerHTML={{ __html: room_type_desc }}
