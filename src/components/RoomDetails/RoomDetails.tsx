@@ -7,6 +7,7 @@ import { IconGuest } from "@Icons/IconGuest";
 import { CustomDropDown, TYPES_OF_GUEST } from "@sharedUI/CustomDropDown";
 import { Accordion } from "flowbite-react";
 import { IconArrowDown } from "@Icons/IconArrowDown";
+import { SignleAccordion } from "@sharedUI/SignleAccordion";
 
 const defaultValues: IValues = {
   [TYPES_OF_GUEST.ADULT]: 1,
@@ -114,16 +115,9 @@ export const RoomDetails = ({
         </div>
       </div>
       <div className="w-full p-2">
-        <Accordion.Panel
-          arrowIcon={() => <IconArrowDown />}
-          alwaysOpen={true}
-          className="justify-end gap-2"
-        >
-          <Accordion.Title className="text-sm   px-1 py-1 gap-2 justify-end flex-grow-0 w-fit ml-auto">
-            Details anzeigen
-          </Accordion.Title>
-          <Accordion.Content>Content</Accordion.Content>
-        </Accordion.Panel>
+        <SignleAccordion title="Details anzeigen">
+          <div>Content</div>
+        </SignleAccordion>
       </div>
     </div>
   );
