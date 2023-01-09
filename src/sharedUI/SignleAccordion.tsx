@@ -17,12 +17,15 @@ export const SignleAccordion = ({
 }: AccordionProps) => {
   const [isOpen, setIsOpen] = useState(open);
   return (
-    <div>
-      <div onClick={() => setIsOpen(!isOpen)}>
+    <>
+      <div
+        className="flex justify-end items-center gap-1 cursor-pointer p-2"
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <span>{title} </span>
         {isOpen ? <IconArrowUp /> : <IconArrowDown />}
       </div>
       <div className={cn("", !isOpen && "hidden")}>{children}</div>
-    </div>
+    </>
   );
 };

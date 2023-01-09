@@ -1,13 +1,13 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
+import { Tabs } from "flowbite-react";
 
 import type { IRoom } from "src/mock/rooms";
 
 import { IconGuest } from "@Icons/IconGuest";
 import { CustomDropDown, TYPES_OF_GUEST } from "@sharedUI/CustomDropDown";
-import { Accordion } from "flowbite-react";
-import { IconArrowDown } from "@Icons/IconArrowDown";
 import { SignleAccordion } from "@sharedUI/SignleAccordion";
+import { IconCheckCircle } from "@Icons/IconCheckCircle";
 
 const defaultValues: IValues = {
   [TYPES_OF_GUEST.ADULT]: 1,
@@ -28,10 +28,13 @@ export const RoomDetails = ({
   max_guests: defaultMaxGuests,
   los_min,
   rate_min,
+  features,
 }: IRoom) => {
   const maxGuests = Number(defaultMaxGuests);
 
   const [avaiableSlots, setAvaiableSlots] = useState(maxGuests);
+  const [activeTab, setActiveTab] = useState<number>(0);
+  const tabsRef = useRef<HTMLDivElement | null>(null);
   const [values, setValues] = useState(defaultValues);
 
   const handleChange = (num: number) => {
@@ -116,7 +119,29 @@ export const RoomDetails = ({
       </div>
       <div className="w-full p-2">
         <SignleAccordion title="Details anzeigen">
-          <div>Content</div>
+          <Tabs.Group
+            aria-label="Default tabs"
+            style="default"
+            ref={tabsRef}
+            //@ts-ignore
+            onActiveTabChange={(tab) => setActiveTab(tab)}
+          >
+            <Tabs.Item active title="Profile">
+              <div
+                className="p-2"
+                dangerouslySetInnerHTML={{ __html: room_type_desc }}
+              />
+            </Tabs.Item>
+            <Tabs.Item title="Zusatzleistungen">
+              <div className="flex flex-wrap gap-y-2">
+                {features.map((feat, i) => (
+                  <div className="flex w-full md:w-1/2" key={i}>
+                    <IconCheckCircle /> {feat}
+                  </div>
+                ))}
+              </div>
+            </Tabs.Item>
+          </Tabs.Group>
         </SignleAccordion>
       </div>
     </div>
