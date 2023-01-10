@@ -49,7 +49,7 @@ export const RoomDetails = ({
             alt="Bitterfelder Hotel"
             src={`/background/Bitterfelder-Hotel-${
               Math.floor(Math.random() * 3) + 1
-            }.jpg`}
+            }.jpeg`}
             fill
             quality={45}
           />
