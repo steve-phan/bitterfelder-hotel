@@ -23,6 +23,7 @@ export const HomePageSlider = () => {
                 fill
                 placeholder="empty"
                 quality={40}
+                loading="eager"
               />
             </div>
           );
