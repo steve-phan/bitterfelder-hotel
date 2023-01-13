@@ -87,7 +87,7 @@ export const RoomDetails = ({
 
           <div className="rd-actions-group p-2 flex flex-col-reverse lg:flex-row justify-between items-center gap-4">
             <div className="flex gap-2 w-full justify-end flex-wrap">
-              <div className="border-solid border-2 border-stale-400 pr-2">
+              <div className="border-solid border-2 border-zinc-100 pr-2 rounded bg-zinc-100">
                 <CustomDropDown
                   label={TYPES_OF_GUEST.ADULT}
                   requireValue
@@ -99,7 +99,7 @@ export const RoomDetails = ({
                 />
               </div>
               {maxGuests !== 1 && (
-                <div className="border-solid border-2 border-stale-400 pr-2">
+                <div className="border-solid border-2 border-zinc-100 pr-2 rounded bg-zinc-100">
                   <CustomDropDown
                     label={TYPES_OF_GUEST.KID}
                     number={maxGuests}
@@ -110,7 +110,7 @@ export const RoomDetails = ({
                   />
                 </div>
               )}
-              <div className="border-solid border-2 border-stale-400 pr-2">
+              <div className="border-solid border-2 border-zinc-100 pr-2 rounded bg-zinc-100">
                 <CustomDropDown
                   label={TYPES_OF_GUEST.ROOM}
                   requireValue

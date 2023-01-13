@@ -19,7 +19,7 @@ export const SignleAccordion = ({
   return (
     <>
       <div
-        className="flex justify-end items-center gap-1 cursor-pointer p-2"
+        className="flex justify-end items-center gap-1 cursor-pointer p-2 text-pink-600"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>{title} </span>

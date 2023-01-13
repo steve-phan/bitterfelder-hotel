@@ -30,7 +30,7 @@ export const getLabel = (value: IValues, label: TLabel) => {
     [TYPES_OF_GUEST.ADULT]: (
       <Badge color="white" size="md">
         {TYPES_OF_GUEST.ADULT}:
-        <span className="text-sm md:text-md text-stale-800 bg-white custom-arrow px-2">
+        <span className="text-sm md:text-md text-stale-800  custom-arrow px-2">
           {value[label]}
         </span>
       </Badge>
@@ -38,7 +38,7 @@ export const getLabel = (value: IValues, label: TLabel) => {
     [TYPES_OF_GUEST.KID]: (
       <Badge color="white" size="md">
         {TYPES_OF_GUEST.KID}:
-        <span className="text-sm md:text-md text-stale-800 bg-white custom-arrow px-2">
+        <span className="text-sm md:text-md text-stale-800  custom-arrow px-2">
           {value[label]}
         </span>
       </Badge>
@@ -46,7 +46,7 @@ export const getLabel = (value: IValues, label: TLabel) => {
     [TYPES_OF_GUEST.ROOM]: (
       <Badge color="white" size="md">
         {TYPES_OF_GUEST.ROOM}:
-        <span className="text-sm md:text-md text-stale-800 bg-white custom-arrow px-2">
+        <span className="text-sm md:text-md text-stale-800  custom-arrow px-2">
           {value[label]}
         </span>
       </Badge>
