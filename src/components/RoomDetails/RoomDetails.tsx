@@ -51,7 +51,7 @@ export const RoomDetails = ({
               Math.floor(Math.random() * 3) + 1
             }.jpeg`}
             fill
-            quality={45}
+            quality={40}
           />
         </div>
         <div className="rd_info flex flex-col justify-around flex-grow">
@@ -86,33 +86,39 @@ export const RoomDetails = ({
           </div>
 
           <div className="rd-actions-group p-2 flex flex-col-reverse lg:flex-row justify-between items-center gap-4">
-            <div className="flex gap-2 w-full justify-end">
-              <CustomDropDown
-                label={TYPES_OF_GUEST.ADULT}
-                requireValue
-                number={maxGuests}
-                onChange={handleChange}
-                max_guests={maxGuests}
-                avaiableSlots={avaiableSlots}
-                values={values}
-              />
-              {maxGuests !== 1 && (
+            <div className="flex gap-2 w-full justify-end flex-wrap">
+              <div className="border-solid border-2 border-stale-400 pr-2">
                 <CustomDropDown
-                  label={TYPES_OF_GUEST.KID}
+                  label={TYPES_OF_GUEST.ADULT}
+                  requireValue
                   number={maxGuests}
                   onChange={handleChange}
                   max_guests={maxGuests}
                   avaiableSlots={avaiableSlots}
                   values={values}
                 />
+              </div>
+              {maxGuests !== 1 && (
+                <div className="border-solid border-2 border-stale-400 pr-2">
+                  <CustomDropDown
+                    label={TYPES_OF_GUEST.KID}
+                    number={maxGuests}
+                    onChange={handleChange}
+                    max_guests={maxGuests}
+                    avaiableSlots={avaiableSlots}
+                    values={values}
+                  />
+                </div>
               )}
-              <CustomDropDown
-                label={TYPES_OF_GUEST.ROOM}
-                requireValue
-                number={num_available_now}
-                onChange={handleChange}
-                values={values}
-              />
+              <div className="border-solid border-2 border-stale-400 pr-2">
+                <CustomDropDown
+                  label={TYPES_OF_GUEST.ROOM}
+                  requireValue
+                  number={num_available_now}
+                  onChange={handleChange}
+                  values={values}
+                />
+              </div>
             </div>
           </div>
         </div>

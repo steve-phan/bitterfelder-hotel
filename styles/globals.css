@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-arrow {
+  position: relative;
+}
+
+.custom-arrow::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid #7d7070;
+  border-top: 1.5px solid #7d7070;
+  transform: rotateZ(314deg);
+  right: -6px;
+  top: 12px;
+}
+
+.custom-arrow::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid #7d7070;
+  border-top: 1.5px solid #7d7070;
+  transform: rotateZ(135deg);
+  right: -6px;
+  bottom: 12px;
+}

@@ -28,18 +28,27 @@ interface ISelectProps {
 export const getLabel = (value: IValues, label: TLabel) => {
   const labelMapping = {
     [TYPES_OF_GUEST.ADULT]: (
-      <Badge color="info" size="md">
-        {TYPES_OF_GUEST.ADULT}: {value[label]}
+      <Badge color="white" size="md">
+        {TYPES_OF_GUEST.ADULT}:
+        <span className="text-sm md:text-md text-stale-800 bg-white custom-arrow px-2">
+          {value[label]}
+        </span>
       </Badge>
     ),
     [TYPES_OF_GUEST.KID]: (
-      <Badge color="success" size="md">
-        {TYPES_OF_GUEST.KID}: {value[label]}
+      <Badge color="white" size="md">
+        {TYPES_OF_GUEST.KID}:
+        <span className="text-sm md:text-md text-stale-800 bg-white custom-arrow px-2">
+          {value[label]}
+        </span>
       </Badge>
     ),
     [TYPES_OF_GUEST.ROOM]: (
-      <Badge color="warning" size="md">
-        {TYPES_OF_GUEST.ROOM}: {value[label]}
+      <Badge color="white" size="md">
+        {TYPES_OF_GUEST.ROOM}:
+        <span className="text-sm md:text-md text-stale-800 bg-white custom-arrow px-2">
+          {value[label]}
+        </span>
       </Badge>
     ),
   };
@@ -59,9 +68,10 @@ export function CustomDropDown({
   return (
     <Dropdown
       label={getLabel(values, label)}
-      // size="sm"
+      size="sm"
       arrowIcon={false}
       inline={true}
+      placement="bottom-end"
     >
       {Array(max_guests || number)
         .fill("")
